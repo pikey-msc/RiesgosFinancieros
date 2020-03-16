@@ -1,0 +1,1039 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.6.6)  11 OCT 2019 20:21
+entering extended mode
+**./tarea_RiesgodeMercado.tex
+(tarea_RiesgodeMercado.tex
+LaTeX2e <2018-12-01>
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls
+"
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size12.clo"
+File: size12.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\inputenc.st
+y"
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\latin1.def"
+File: latin1.def 2018/08/11 v1.3c Input encoding file
+))
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.st
+y"
+Package: babel 2019/06/03 3.32 The Babel package
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\switch.d
+ef"
+File: switch.def 2019/06/03 3.32 Babel switching mechanism
+)
+*************************************
+* Local config file bblopts.cfg used
+*
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/arabi\bblopts.cf
+g"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/babel-spanish\sp
+anish.ldf"
+Language: spanish.ldf 2016/03/03 v5.0p Spanish support from the babel system
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.de
+f"
+File: babel.def 2019/06/03 3.32 Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen103
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\txtbabel
+.def")
+\bbl@dirlevel=\count89
+)
+\es@quottoks=\toks16
+\es@quotdepth=\count90
+Package babel Info: Making " an active character on input line 561.
+Package babel Info: Making . an active character on input line 662.
+Package babel Info: Making < an active character on input line 707.
+Package babel Info: Making > an active character on input line 707.
+))
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphic
+x.sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.
+sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphic
+s.sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.st
+y"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\gra
+phics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pdf
+tex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amscls\amsthm.st
+y"
+Package: amsthm 2017/10/31 v2.20.4
+\thm@style=\toks18
+\thm@bodyfont=\toks19
+\thm@headfont=\toks20
+\thm@notefont=\toks21
+\thm@headpunct=\toks22
+\thm@preskip=\skip43
+\thm@postskip=\skip44
+\thm@headsep=\skip45
+\dth@everypar=\toks23
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amsfont
+s.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks24
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/jknappen\mathrsf
+s.sty"
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup6
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amssymb
+.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmath.
+sty"
+Package: amsmath 2018/12/01 v2.17b AMS math features
+\@mathmargin=\skip46
+
+For additional information on amsmath, use the `?' option.
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amstext.
+sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen.s
+ty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks25
+\ex@=\dimen106
+))
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy.s
+ty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen107
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn.s
+ty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count91
+LaTeX Info: Redefining \frac on input line 223.
+\uproot@=\count92
+\leftroot@=\count93
+LaTeX Info: Redefining \overline on input line 385.
+\classnum@=\count94
+\DOTSCASE@=\count95
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
+\Mathstrutbox@=\box27
+\strutbox@=\box28
+\big@size=\dimen108
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+\macc@depth=\count96
+\c@MaxMatrixCols=\count97
+\dotsspace@=\muskip10
+\c@parentequation=\count98
+\dspbrk@lvl=\count99
+\tag@help=\toks26
+\row@=\count100
+\column@=\count101
+\maxfields@=\count102
+\andhelp@=\toks27
+\eqnshift@=\dimen109
+\alignsep@=\dimen110
+\tagshift@=\dimen111
+\tagwidth@=\dimen112
+\totwidth@=\dimen113
+\lineht@=\dimen114
+\@envbody=\toks28
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks29
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fancyhdr\fancyhd
+r.sty"
+Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
+s
+\f@nch@headwidth=\skip49
+\f@nch@O@elh=\skip50
+\f@nch@O@erh=\skip51
+\f@nch@O@olh=\skip52
+\f@nch@O@orh=\skip53
+\f@nch@O@elf=\skip54
+\f@nch@O@erf=\skip55
+\f@nch@O@olf=\skip56
+\f@nch@O@orf=\skip57
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pstricks\pstrick
+s.sty"
+Package: pstricks 2018/12/21 v0.69 LaTeX wrapper for `PSTricks' (RN,HV)
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/iftex\iftex.sty"
+Package: iftex 2013/04/04 v0.2 Provides if(tex) conditional for PDFTeX, XeTeX, 
+and LuaTeX
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\shellesc.s
+ty"
+Package: shellesc 2016/06/07 v0.02a unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 69.
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xcolor\xcolor.st
+y"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\col
+or.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xkeyval\pst-xk
+ey.tex"
+File: pst-xkey.tex 2005/11/25 v1.6 PSTricks specialization of xkeyval (HA)
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xkeyval\xkeyval.
+sty"
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xkeyval\xkeyva
+l.tex"
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xkeyval\xkvuti
+ls.tex"
+\XKV@toks=\toks30
+\XKV@tempa@toks=\toks31
+)
+\XKV@depth=\count103
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)))
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pstricks\pstri
+cks.tex"
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pstricks\pst-f
+p.tex" `pst-fp' v0.05, 2010/01/17 (hv)
+\pstFP@xs=\count104
+\pstFP@xia=\count105
+\pstFP@xib=\count106
+\pstFP@xfa=\count107
+\pstFP@xfb=\count108
+\pstFP@rega=\count109
+\pstFP@regb=\count110
+\pstFP@regs=\count111
+\pstFP@times=\count112
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\
+pgfutil-common.tex"
+\pgfutil@everybye=\toks32
+\pgfutil@tempdima=\dimen115
+\pgfutil@tempdimb=\dimen116
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\
+pgfutil-common-lists.tex"))
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\
+pgfkeys.code.tex"
+\pgfkeys@pathtoks=\toks33
+\pgfkeys@temptoks=\toks34
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\
+pgfkeysfiltered.code.tex"
+\pgfkeys@tmptoks=\toks35
+))
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\
+pgffor.code.tex"
+Loading pgffor.code.tex
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfma
+th.code.tex"
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfma
+thcalc.code.tex"
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfma
+thutil.code.tex"
+\pgf@x=\dimen117
+\pgf@xa=\dimen118
+\pgf@xb=\dimen119
+\pgf@xc=\dimen120
+\pgf@y=\dimen121
+\pgf@ya=\dimen122
+\pgf@yb=\dimen123
+\pgf@yc=\dimen124
+\c@pgf@counta=\count113
+\c@pgf@countb=\count114
+\c@pgf@countc=\count115
+\c@pgf@countd=\count116
+\pgfutil@tempcnta=\count117
+\pgfutil@tempcntb=\count118
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfma
+thparser.code.tex"
+\pgfmath@dimen=\dimen125
+\pgfmath@count=\count119
+\pgfmath@box=\box29
+\pgfmath@toks=\toks36
+\pgfmath@stack@operand=\toks37
+\pgfmath@stack@operation=\toks38
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfma
+thfunctions.code.tex"
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfma
+thfunctions.basic.code.tex")
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfma
+thfunctions.trigonometric.code.tex")
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfma
+thfunctions.random.code.tex")
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfma
+thfunctions.comparison.code.tex")
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfma
+thfunctions.base.code.tex")
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfma
+thfunctions.round.code.tex")
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfma
+thfunctions.misc.code.tex")
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfma
+thfunctions.integerarithmetics.code.tex")))
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfma
+thfloat.code.tex"
+\c@pgfmathroundto@lastzeros=\count120
+))
+\pgffor@iter=\dimen126
+\pgffor@skip=\dimen127
+\pgffor@stack=\toks39
+\pgffor@toks=\toks40
+)
+\psLoopIndex=\count121
+
+`PSTricks' v2.97  <2019/05/11> (tvz,hv)
+\pst@dima=\dimen128
+\pst@dimb=\dimen129
+\pst@dimc=\dimen130
+\pst@dimd=\dimen131
+\pst@dimg=\dimen132
+\pst@dimh=\dimen133
+\pst@dimm=\dimen134
+\pst@dimn=\dimen135
+\pst@dimo=\dimen136
+\pst@dimp=\dimen137
+\pst@hbox=\box30
+\pst@ibox=\box31
+\pst@boxg=\box32
+\pst@cnta=\count122
+\pst@cntb=\count123
+\pst@cntc=\count124
+\pst@cntd=\count125
+\pst@cntg=\count126
+\pst@cnth=\count127
+\pst@cntm=\count128
+\pst@cntn=\count129
+\pst@cnto=\count130
+\pst@cntp=\count131
+\@zero=\count132
+\pst@toks=\toks41
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pstricks\pstri
+cks.con")
+\psunit=\dimen138
+\psxunit=\dimen139
+\psyunit=\dimen140
+\pst@C@@rType=\count133
+\pslinewidth=\dimen141
+\psk@startLW=\dimen142
+\psk@endLW=\dimen143
+\pst@customdefs=\toks42
+\pslinearc=\dimen144
+\pst@symbolStep=\dimen145
+\pst@symbolWidth=\dimen146
+\pst@symbolLinewidth=\dimen147
+\everypsbox=\toks43
+\psframesep=\dimen148
+\pslabelsep=\dimen149
+\sh@wgridXunit=\dimen150
+\sh@wgridYunit=\dimen151
+\pst@shift=\dimen152
+)
+File: pstricks.tex 2019/05/11 v2.97 `PSTricks' (tvz,hv)
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pstricks\pst-f
+p.tex")
+File: pst-fp.tex 2019/05/11 v2.97 `PST-fp' (hv)
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pst-plot\pst-plo
+t.sty"
+Package: pst-plot 2011/06/05 v1.00 LaTeX wrapper for `pst-plot' (HV)
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xkeyval\pst-xkey
+.sty"
+Package: pst-xkey 2005/11/25 v1.6 package wrapper for pst-xkey.tex (HA)
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/multido\multido.
+sty"
+Package: multido 2004/05/17 package wrapper for PSTricks `multido.tex', (HV/RN)
+
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/multido\multid
+o.tex"  v1.42, 2010/05/14 <tvz>
+\multido@count=\count134
+\multidocount=\count135
+\multido@stuff=\toks44
+)
+File: multido.tex 2010/05/14 v1.42 `multido' (tvz,hv)
+)
+Package: pst-plot 2011/04/13 package wrapper for pst-plot.tex (hv)
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pst-plot\pst-p
+lot.tex"
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pst-tools\pst-
+tools.tex" `PST-tools' v0.09b, 2017/12/03 (hv))
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pstricks-add\p
+stricks-add.tex"
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pst-node\pst-n
+ode.tex"  v1.42, 2019/03/03
+\psrow=\count136
+\pscol=\count137
+\psmatrixcnt=\count138
+\psrowsep=\skip58
+\pscolsep=\skip59
+\pst@args=\count139
+\num@pts=\count140
+\pst@argcnt=\count141
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pst-arrow\pst-
+arrow.tex" `pst-arrow' v0.01, 2016/09/01 (dr,hv)
+\pshooklength=\dimen153
+\pshookwidth=\dimen154
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pst-3d\pst-3d.
+tex" `PST-3d' v1.11, 2010/02/14 (tvz))
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pst-math\pst-m
+ath.tex" `pst-math' v0.64 , (CJ,hv)) `pstricks-add' v3.87, 2019/01/12 (dr,hv)
+\psparallelogramsep=\dimen155
+\pst@cntC=\count142
+\pst@stepcount=\count143
+\chart@ColorIndex=\dimen156
+\chart@ColorStep=\dimen157
+\pst@chartHeight=\dimen158
+\pst@chartStackDepth=\dimen159
+\pst@chartStackWidth=\dimen160
+\chart@Toggle=\count144
+\psVectorCtr=\count145
+)
+ v1.91, 2018/08/31 (tvz,hv)
+\pstRadUnit=\dimen161
+\pstRadUnitInv=\dimen162
+\pst@linecnt=\count146
+\RCD@file=\read1
+\psxlabelsep=\dimen163
+\psylabelsep=\dimen164
+\psk@subticksize=\dimen165
+\pst@xticksizeA=\dimen166
+\pst@xticksizeB=\dimen167
+\pst@xticksizeC=\dimen168
+\pst@yticksizeA=\dimen169
+\pst@yticksizeB=\dimen170
+\pst@yticksizeC=\dimen171
+\@digitcounter=\count147
+\psk@llx=\dimen172
+\psk@lly=\dimen173
+\psk@urx=\dimen174
+\psk@ury=\dimen175
+\pst@xunit=\dimen176
+\pst@yunit=\dimen177
+)
+File: pst-plot.tex 2018/08/31 1.91 `pst-plot' (tvz,hv)
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pstricks-add\pst
+ricks-add.sty"
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pst-node\pst-nod
+e.sty"
+Package: pst-node 2012/09/18 v1.01 LaTeX wrapper for `pst-node' (HV)
+Package: pst-node 2010/04/22 package wrapper for pst-node.tex
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pst-node\pst-n
+ode.tex")
+File: pst-node.tex 2018/08/31 1.91 `pst-node' (tvz,hv)
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pst-3d\pst-3d.st
+y"
+Package: pst-3d 2009/07/28 package wrapper for pst-3d.tex (hv)
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pst-3d\pst-3d.
+tex")
+File: pst-3d.tex 2018/08/31 v1.91 `PST-3d' (hv)
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pst-math\pst-mat
+h.sty"
+Package: pst-math 2018/12/16 v 0.65 package wrapper for PSTricks pst-math.tex
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pst-calculate\ps
+t-calculate.sty"
+Package: pst-calculate 2019/01/24 v. 0.02(Herbert Voss) Support for caculations
+ with floating point numbers.
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3packages/xpars
+e\xparse.sty"
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3kernel\expl3.s
+ty"
+Package: expl3 2019-05-28 L3 programming layer (loader) 
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3kernel\expl3-c
+ode.tex"
+Package: expl3 2019-05-28 L3 programming layer (code)
+\c_max_int=\count148
+\l_tmpa_int=\count149
+\l_tmpb_int=\count150
+\g_tmpa_int=\count151
+\g_tmpb_int=\count152
+\g__kernel_prg_map_int=\count153
+\c__ior_term_ior=\count154
+\c_log_iow=\count155
+\l_iow_line_count_int=\count156
+\l__iow_line_target_int=\count157
+\l__iow_one_indent_int=\count158
+\l__iow_indent_int=\count159
+\c_zero_dim=\dimen178
+\c_max_dim=\dimen179
+\l_tmpa_dim=\dimen180
+\l_tmpb_dim=\dimen181
+\g_tmpa_dim=\dimen182
+\g_tmpb_dim=\dimen183
+\c_zero_skip=\skip60
+\c_max_skip=\skip61
+\l_tmpa_skip=\skip62
+\l_tmpb_skip=\skip63
+\g_tmpa_skip=\skip64
+\g_tmpb_skip=\skip65
+\c_zero_muskip=\muskip11
+\c_max_muskip=\muskip12
+\l_tmpa_muskip=\muskip13
+\l_tmpb_muskip=\muskip14
+\g_tmpa_muskip=\muskip15
+\g_tmpb_muskip=\muskip16
+\l_keys_choice_int=\count160
+\l__intarray_loop_int=\count161
+\c__intarray_sp_dim=\dimen184
+\g__intarray_font_int=\count162
+\c__fp_leading_shift_int=\count163
+\c__fp_middle_shift_int=\count164
+\c__fp_trailing_shift_int=\count165
+\c__fp_big_leading_shift_int=\count166
+\c__fp_big_middle_shift_int=\count167
+\c__fp_big_trailing_shift_int=\count168
+\c__fp_Bigg_leading_shift_int=\count169
+\c__fp_Bigg_middle_shift_int=\count170
+\c__fp_Bigg_trailing_shift_int=\count171
+\c__kernel_randint_max_int=\count172
+\g__fp_array_int=\count173
+\l__fp_array_loop_int=\count174
+\l__sort_length_int=\count175
+\l__sort_min_int=\count176
+\l__sort_top_int=\count177
+\l__sort_max_int=\count178
+\l__sort_true_max_int=\count179
+\l__sort_block_int=\count180
+\l__sort_begin_int=\count181
+\l__sort_end_int=\count182
+\l__sort_A_int=\count183
+\l__sort_B_int=\count184
+\l__sort_C_int=\count185
+\l__tl_analysis_normal_int=\count186
+\l__tl_analysis_index_int=\count187
+\l__tl_analysis_nesting_int=\count188
+\l__tl_analysis_type_int=\count189
+\l__regex_internal_a_int=\count190
+\l__regex_internal_b_int=\count191
+\l__regex_internal_c_int=\count192
+\l__regex_balance_int=\count193
+\l__regex_group_level_int=\count194
+\l__regex_mode_int=\count195
+\c__regex_cs_in_class_mode_int=\count196
+\c__regex_cs_mode_int=\count197
+\l__regex_catcodes_int=\count198
+\l__regex_default_catcodes_int=\count199
+\c__regex_catcode_D_int=\count266
+\c__regex_catcode_S_int=\count267
+\c__regex_catcode_L_int=\count268
+\c__regex_catcode_O_int=\count269
+\c__regex_catcode_A_int=\count270
+\c__regex_all_catcodes_int=\count271
+\l__regex_show_lines_int=\count272
+\l__regex_min_state_int=\count273
+\l__regex_max_state_int=\count274
+\l__regex_left_state_int=\count275
+\l__regex_right_state_int=\count276
+\l__regex_capturing_group_int=\count277
+\l__regex_min_pos_int=\count278
+\l__regex_max_pos_int=\count279
+\l__regex_curr_pos_int=\count280
+\l__regex_start_pos_int=\count281
+\l__regex_success_pos_int=\count282
+\l__regex_curr_char_int=\count283
+\l__regex_curr_catcode_int=\count284
+\l__regex_last_char_int=\count285
+\l__regex_case_changed_char_int=\count286
+\l__regex_curr_state_int=\count287
+\l__regex_step_int=\count288
+\l__regex_min_active_int=\count289
+\l__regex_max_active_int=\count290
+\l__regex_replacement_csnames_int=\count291
+\l__regex_match_count_int=\count292
+\l__regex_min_submatch_int=\count293
+\l__regex_submatch_int=\count294
+\l__regex_zeroth_submatch_int=\count295
+\g__regex_trace_regex_int=\count296
+\c_empty_box=\box33
+\l_tmpa_box=\box34
+\l_tmpb_box=\box35
+\g_tmpa_box=\box36
+\g_tmpb_box=\box37
+\l__box_top_dim=\dimen185
+\l__box_bottom_dim=\dimen186
+\l__box_left_dim=\dimen187
+\l__box_right_dim=\dimen188
+\l__box_top_new_dim=\dimen189
+\l__box_bottom_new_dim=\dimen190
+\l__box_left_new_dim=\dimen191
+\l__box_right_new_dim=\dimen192
+\l__box_internal_box=\box38
+\l__coffin_internal_box=\box39
+\l__coffin_internal_dim=\dimen193
+\l__coffin_offset_x_dim=\dimen194
+\l__coffin_offset_y_dim=\dimen195
+\l__coffin_x_dim=\dimen196
+\l__coffin_y_dim=\dimen197
+\l__coffin_x_prime_dim=\dimen198
+\l__coffin_y_prime_dim=\dimen199
+\c_empty_coffin=\box40
+\l__coffin_aligned_coffin=\box41
+\l__coffin_aligned_internal_coffin=\box42
+\l_tmpa_coffin=\box43
+\l_tmpb_coffin=\box44
+\g_tmpa_coffin=\box45
+\g_tmpb_coffin=\box46
+\l__coffin_bounding_shift_dim=\dimen256
+\l__coffin_left_corner_dim=\dimen257
+\l__coffin_right_corner_dim=\dimen258
+\l__coffin_bottom_corner_dim=\dimen259
+\l__coffin_top_corner_dim=\dimen260
+\l__coffin_scaled_total_height_dim=\dimen261
+\l__coffin_scaled_width_dim=\dimen262
+\c__coffin_empty_coffin=\box47
+\l__coffin_display_coffin=\box48
+\l__coffin_display_coord_coffin=\box49
+\l__coffin_display_pole_coffin=\box50
+\l__coffin_display_offset_dim=\dimen263
+\l__coffin_display_x_dim=\dimen264
+\l__coffin_display_y_dim=\dimen265
+\g__file_internal_ior=\read2
+\l__seq_internal_a_int=\count297
+\l__seq_internal_b_int=\count298
+\c__deprecation_minus_one=\count299
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3kernel\l3pdfmo
+de.def"
+File: l3pdfmode.def 2019-04-06 v L3 Experimental driver: PDF mode
+\l__driver_internal_box=\box51
+\l__driver_color_stack_int=\count300
+))
+Package: xparse 2019-05-28 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count301
+\g__xparse_grabber_int=\count302
+\l__xparse_m_args_int=\count303
+\l__xparse_v_nesting_int=\count304
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/siunitx\siunitx.
+sty"
+Package: siunitx 2018/05/17 v2.7s A comprehensive (SI) units package
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\array.sty"
+Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
+\col@sep=\dimen266
+\ar@mcellbox=\box52
+\extrarowheight=\dimen267
+\NC@list=\toks45
+\extratabsurround=\skip66
+\backup@length=\skip67
+\ar@cellbox=\box53
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3packages/l3key
+s2e\l3keys2e.sty"
+Package: l3keys2e 2019-05-28 LaTeX2e option processing using LaTeX3 keys
+)
+\l__siunitx_tmp_box=\box54
+\l__siunitx_tmp_dim=\dimen268
+\l__siunitx_tmp_int=\count305
+\l__siunitx_number_mantissa_length_int=\count306
+\l__siunitx_number_uncert_length_int=\count307
+\l__siunitx_round_int=\count308
+\l__siunitx_process_decimal_int=\count309
+\l__siunitx_process_uncertainty_int=\count310
+\l__siunitx_process_fixed_int=\count311
+\l__siunitx_process_integer_min_int=\count312
+\l__siunitx_process_precision_int=\count313
+\l__siunitx_group_min_int=\count314
+\l__siunitx_angle_marker_box=\box55
+\l__siunitx_angle_unit_box=\box56
+\l__siunitx_angle_marker_dim=\dimen269
+\l__siunitx_angle_unit_dim=\dimen270
+\l__siunitx_unit_int=\count315
+\l__siunitx_unit_denominator_int=\count316
+\l__siunitx_unit_numerator_int=\count317
+\l__siunitx_unit_prefix_int=\count318
+\l__siunitx_unit_prefix_base_int=\count319
+\l__siunitx_unit_prefix_gram_int=\count320
+\l__siunitx_number_product_int=\count321
+\c__siunitx_one_fill_skip=\skip68
+\l__siunitx_table_unit_align_skip=\skip69
+\l__siunitx_table_exponent_dim=\dimen271
+\l__siunitx_table_integer_dim=\dimen272
+\l__siunitx_table_mantissa_dim=\dimen273
+\l__siunitx_table_marker_dim=\dimen274
+\l__siunitx_table_result_dim=\dimen275
+\l__siunitx_table_uncert_dim=\dimen276
+\l__siunitx_table_fill_pre_dim=\dimen277
+\l__siunitx_table_fill_post_dim=\dimen278
+\l__siunitx_table_fill_mid_dim=\dimen279
+\l__siunitx_table_pre_box=\box57
+\l__siunitx_table_post_box=\box58
+\l__siunitx_table_mantissa_box=\box59
+\l__siunitx_table_result_box=\box60
+\l__siunitx_table_number_align_skip=\skip70
+\l__siunitx_table_text_align_skip=\skip71
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/translator\trans
+lator.sty"
+Package: translator 2019-05-31 v1.12a Easy translation of strings in LaTeX
+)))
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\iflua
+tex.sty"
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xstring\xstring.
+sty"
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xstring\xstrin
+g.tex"
+\integerpart=\count322
+\decimalpart=\count323
+)
+Package: xstring 2019/02/06 v1.83 String manipulations (CT)
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pst-math\pst-m
+ath.tex")
+File: pst-math.tex 2018/08/31 v1.91 `PST-math' (hv)
+\c@Rand@No=\count324
+\c@Random@Left=\count325
+\c@Random@Right=\count326
+\c@Random@No@max=\count327
+)
+Package: pstricks-add 2018/02/04 v. 0.16 package wrapper for pstricks-add.tex (
+hv)
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pstricks-add\p
+stricks-add.tex")
+File: pstricks-add.tex 2018/08/31 v1.91 `PSTricks-add' (hv)
+) (tarea_RiesgodeMercado.aux
+LaTeX Info: Redefining \. on input line 6.
+LaTeX Info: Redefining \% on input line 6.
+)
+\openout1 = `tarea_RiesgodeMercado.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Info: Redefining \. on input line 86.
+LaTeX Info: Redefining \% on input line 86.
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp
+-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count328
+\scratchdimen=\dimen280
+\scratchbox=\box61
+\nofMPsegments=\count329
+\nofMParguments=\count330
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count331
+\MPscratchDim=\dimen281
+\MPnumerator=\count332
+\makeMPintoPDFobject=\count333
+\everyMPtoPDFconversion=\toks47
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopd
+f-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\infwa
+rerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\grfext.
+sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\kvdef
+inekeys.sty"
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ltxcm
+ds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\kvoptio
+ns.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\kvset
+keys.sty"
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\etexc
+mds.sty"
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+)))
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\pdfte
+xcmds.sty"
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ifpdf
+.sty"
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+)
+Now handling font encoding TS1 ...
+... processing UTF-8 mapping file for font encoding TS1
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ts1enc.dfu"
+File: ts1enc.dfu 2018/10/05 v1.2f UTF-8 support for inputenc
+   defining Unicode char U+00A2 (decimal 162)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00A4 (decimal 164)
+   defining Unicode char U+00A5 (decimal 165)
+   defining Unicode char U+00A6 (decimal 166)
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00A8 (decimal 168)
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AC (decimal 172)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00AF (decimal 175)
+   defining Unicode char U+00B0 (decimal 176)
+   defining Unicode char U+00B1 (decimal 177)
+   defining Unicode char U+00B2 (decimal 178)
+   defining Unicode char U+00B3 (decimal 179)
+   defining Unicode char U+00B4 (decimal 180)
+   defining Unicode char U+00B5 (decimal 181)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+00B9 (decimal 185)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+00BC (decimal 188)
+   defining Unicode char U+00BD (decimal 189)
+   defining Unicode char U+00BE (decimal 190)
+   defining Unicode char U+00D7 (decimal 215)
+   defining Unicode char U+00F7 (decimal 247)
+   defining Unicode char U+0192 (decimal 402)
+   defining Unicode char U+02C7 (decimal 711)
+   defining Unicode char U+02D8 (decimal 728)
+   defining Unicode char U+02DD (decimal 733)
+   defining Unicode char U+0E3F (decimal 3647)
+   defining Unicode char U+2016 (decimal 8214)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+203B (decimal 8251)
+   defining Unicode char U+203D (decimal 8253)
+   defining Unicode char U+2044 (decimal 8260)
+   defining Unicode char U+204E (decimal 8270)
+   defining Unicode char U+2052 (decimal 8274)
+   defining Unicode char U+20A1 (decimal 8353)
+   defining Unicode char U+20A4 (decimal 8356)
+   defining Unicode char U+20A6 (decimal 8358)
+   defining Unicode char U+20A9 (decimal 8361)
+   defining Unicode char U+20AB (decimal 8363)
+   defining Unicode char U+20AC (decimal 8364)
+   defining Unicode char U+20B1 (decimal 8369)
+   defining Unicode char U+2103 (decimal 8451)
+   defining Unicode char U+2116 (decimal 8470)
+   defining Unicode char U+2117 (decimal 8471)
+   defining Unicode char U+211E (decimal 8478)
+   defining Unicode char U+2120 (decimal 8480)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2126 (decimal 8486)
+   defining Unicode char U+2127 (decimal 8487)
+   defining Unicode char U+212E (decimal 8494)
+   defining Unicode char U+2190 (decimal 8592)
+   defining Unicode char U+2191 (decimal 8593)
+   defining Unicode char U+2192 (decimal 8594)
+   defining Unicode char U+2193 (decimal 8595)
+   defining Unicode char U+2329 (decimal 9001)
+   defining Unicode char U+232A (decimal 9002)
+   defining Unicode char U+2422 (decimal 9250)
+   defining Unicode char U+25E6 (decimal 9702)
+   defining Unicode char U+25EF (decimal 9711)
+   defining Unicode char U+266A (decimal 9834)
+   defining Unicode char U+FEFF (decimal 65279)
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/translator\trans
+lator-basic-dictionary-English.dict"
+Dictionary: translator-basic-dictionary, Language: English 
+)
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/siunitx\siunitx-
+abbreviations.cfg"
+File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 86.
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd
+"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 86.
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd
+"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 86.
+
+("C:\Users\GR355TX\AppData\Local\Programs\MiKTeX 2.9\tex/latex/jknappen\ursfs.f
+d"
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--166
+
+ []
+
+[1
+Non-PDF special ignored!
+<special> header=pstricks.pro
+Non-PDF special ignored!
+<special> header=pst-algparser.pro
+Non-PDF special ignored!
+<special> header=pst-tools.pro
+Non-PDF special ignored!
+<special> header=pst-dots.pro
+Non-PDF special ignored!
+<special> header=pst-node.pro
+Non-PDF special ignored!
+<special> header=pst-3d.pro
+Non-PDF special ignored!
+<special> header=pst-math.pro
+Non-PDF special ignored!
+<special> header=pstricks-add.pro
+
+Non-PDF special ignored!
+<special> ps: /pssetRGBcolor /setrgbcolor load def /pssetCMYKcolor /setcmyk...
+Non-PDF special ignored!
+<special> ps:tx@Dict begin  gsave STV CP T /ps@rot 0 def grestore  end
+Non-PDF special ignored!
+<special> ps:tx@Dict begin  gsave STV CP T /ps@refangle 0.  def grestore  e...
+Non-PDF special ignored!
+<special> ps:tx@Dict begin  gsave STV CP T /ps@rot 0 def grestore  end
+{C:/Users/GR355TX/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+(tarea_RiesgodeMercado.aux
+LaTeX Info: Redefining \. on input line 6.
+LaTeX Info: Redefining \% on input line 6.
+) ) 
+Here is how much of TeX's memory you used:
+ 25018 strings out of 492895
+ 481191 string characters out of 3122802
+ 564792 words of memory out of 3000000
+ 28642 multiletter control sequences out of 15000+200000
+ 543751 words of font info for 72 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 61i,5n,69p,676b,359s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/GR355TX/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmbx10.pfb><C:/Users/GR355TX/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmbx12.pfb><C:/Users/GR355TX/AppData/Local/Programs/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/GR355TX/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/GR355TX
+/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:
+/Users/GR355TX/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmti10.pfb>
+Output written on tarea_RiesgodeMercado.pdf (1 page, 78246 bytes).
+PDF statistics:
+ 30 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
