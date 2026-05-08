@@ -1,0 +1,305 @@
+
+<h2 class="sr-only">Playground interactivo de clustering jerárquico: dendrograma con parámetros ajustables</h2>
+<div style="display:grid;grid-template-columns:220px 1fr;gap:16px;padding:1rem 0;min-height:580px">
+<div style="display:flex;flex-direction:column;gap:10px">
+  <div style="font-size:13px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">configuración</div>
+
+  <label style="font-size:12px;color:var(--color-text-secondary)">método de enlace</label>
+  <select id="linkage" style="font-size:13px;padding:6px 8px;border-radius:var(--border-radius-md);border:.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary)">
+    <option value="single">single</option>
+    <option value="complete" selected>complete</option>
+    <option value="average">average (UPGMA)</option>
+    <option value="ward">ward</option>
+    <option value="centroid">centroid</option>
+  </select>
+
+  <label style="font-size:12px;color:var(--color-text-secondary)">métrica de distancia</label>
+  <select id="metric" style="font-size:13px;padding:6px 8px;border-radius:var(--border-radius-md);border:.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary)">
+    <option value="euclidean" selected>euclidiana</option>
+    <option value="manhattan">manhattan</option>
+    <option value="chebyshev">chebyshev</option>
+  </select>
+
+  <label style="font-size:12px;color:var(--color-text-secondary)">dataset</label>
+  <select id="dataset" style="font-size:13px;padding:6px 8px;border-radius:var(--border-radius-md);border:.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary)">
+    <option value="blobs">blobs (3 grupos)</option>
+    <option value="moons">lunas</option>
+    <option value="ring">anillos</option>
+    <option value="random">aleatorio</option>
+  </select>
+
+  <label style="font-size:12px;color:var(--color-text-secondary)">n puntos: <span id="nVal">18</span></label>
+  <input type="range" id="nPts" min="6" max="30" step="1" value="18">
+
+  <label style="font-size:12px;color:var(--color-text-secondary)">corte (k clusters): <span id="kVal">3</span></label>
+  <input type="range" id="kCut" min="1" max="8" step="1" value="3">
+
+  <div style="margin-top:4px;font-size:12px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.05em">tipo</div>
+  <div style="display:flex;gap:6px">
+    <button id="btnAgg" onclick="setDir('agglomerative')" style="flex:1;font-size:12px;padding:5px 0">agglomerative ▲</button>
+    <button id="btnDiv" onclick="setDir('divisive')" style="flex:1;font-size:12px;padding:5px 0">divisive ▼</button>
+  </div>
+  <div id="dirLabel" style="font-size:11px;color:var(--color-text-secondary);text-align:center">modo: agglomerative</div>
+
+  <div style="margin-top:8px;padding:8px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);font-size:11px;color:var(--color-text-secondary);line-height:1.6" id="infoBox">
+    complete: d(A,B)= max de distancias entre pares
+  </div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:12px">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+    <div>
+      <div style="font-size:11px;color:var(--color-text-secondary);margin-bottom:4px">espacio de datos</div>
+      <canvas id="scatter" width="300" height="220" style="width:100%;border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md)"></canvas>
+    </div>
+    <div>
+      <div style="font-size:11px;color:var(--color-text-secondary);margin-bottom:4px">matriz de distancias</div>
+      <canvas id="heatmap" width="300" height="220" style="width:100%;border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md)"></canvas>
+    </div>
+  </div>
+  <div>
+    <div style="font-size:11px;color:var(--color-text-secondary);margin-bottom:4px">dendrograma</div>
+    <canvas id="dendo" width="620" height="280" style="width:100%;border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md)"></canvas>
+  </div>
+</div>
+</div>
+
+<script>
+const PALETTE=['#378ADD','#D85A30','#1D9E75','#D4537E','#BA7517','#7F77DD','#639922','#E24B4A','#0F6E56','#993C1D'];
+let DIR='agglomerative', pts=[], Z=[], labels=[], N=18, K=3;
+
+const DESC={
+  single:'single: d(A,B)= mín de distancias entre pares (encadenamiento simple)',
+  complete:'complete: d(A,B)= máx de distancias entre pares (encadenamiento completo)',
+  average:'UPGMA: d(A,B)= promedio ponderado de distancias',
+  ward:'ward: minimiza varianza intra-cluster en cada fusión',
+  centroid:'centroid: distancia entre centroides de los clusters'
+};
+
+function setDir(d){
+  DIR=d;
+  document.getElementById('btnAgg').style.fontWeight=d==='agglomerative'?'500':'400';
+  document.getElementById('btnDiv').style.fontWeight=d==='divisive'?'500':'400';
+  document.getElementById('dirLabel').textContent='modo: '+d;
+  run();
+}
+
+function dist(a,b,m){
+  if(m==='euclidean') return Math.hypot(a[0]-b[0],a[1]-b[1]);
+  if(m==='manhattan') return Math.abs(a[0]-b[0])+Math.abs(a[1]-b[1]);
+  return Math.max(Math.abs(a[0]-b[0]),Math.abs(a[1]-b[1]));
+}
+
+function genData(){
+  const ds=document.getElementById('dataset').value;
+  N=+document.getElementById('nPts').value;
+  pts=[];
+  if(ds==='blobs'){
+    const cs=[[.25,.25],[.75,.25],[.5,.75]];
+    for(let i=0;i<N;i++){const c=cs[i%3];pts.push([c[0]+(Math.random()-.5)*.2,c[1]+(Math.random()-.5)*.2]);}
+  } else if(ds==='moons'){
+    for(let i=0;i<N;i++){
+      const t=Math.PI*i/N;
+      if(i<N/2) pts.push([.5+.4*Math.cos(t)+(.5-Math.random())*.08,.5+.4*Math.sin(t)+(.5-Math.random())*.08]);
+      else pts.push([.5+.4*Math.cos(Math.PI+t)+(.5-Math.random())*.08,.3+.4*Math.sin(Math.PI+t)+(.5-Math.random())*.08]);
+    }
+  } else if(ds==='ring'){
+    for(let i=0;i<N;i++){
+      const t=2*Math.PI*i/N, r=i<N/2?.2:.4;
+      pts.push([.5+r*Math.cos(t)+(.5-Math.random())*.05,.5+r*Math.sin(t)+(.5-Math.random())*.05]);
+    }
+  } else {
+    for(let i=0;i<N;i++) pts.push([.1+Math.random()*.8,.1+Math.random()*.8]);
+  }
+  labels=pts.map((_,i)=>String(i));
+}
+
+function buildDistMatrix(){
+  const m=document.getElementById('metric').value;
+  const D=Array.from({length:N},(_,i)=>Array.from({length:N},(_,j)=>dist(pts[i],pts[j],m)));
+  return D;
+}
+
+function clusterDist(ca,cb,D,lnk,clusters,initD){
+  const ia=clusters[ca], ib=clusters[cb];
+  if(lnk==='single') return Math.min(...ia.flatMap(i=>ib.map(j=>initD[i][j])));
+  if(lnk==='complete') return Math.max(...ia.flatMap(i=>ib.map(j=>initD[i][j])));
+  if(lnk==='average'){
+    let s=0;ia.forEach(i=>ib.forEach(j=>s+=initD[i][j]));return s/(ia.length*ib.length);
+  }
+  if(lnk==='centroid'){
+    const cx=a=>a.reduce((s,i)=>s+pts[i][0],0)/a.length, cy=a=>a.reduce((s,i)=>s+pts[i][1],0)/a.length;
+    return Math.hypot(cx(ia)-cx(ib),cy(ia)-cy(ib));
+  }
+  // ward
+  const na=ia.length, nb=ib.length;
+  const cx=a=>a.reduce((s,i)=>s+pts[i][0],0)/a.length, cy=a=>a.reduce((s,i)=>s+pts[i][1],0)/a.length;
+  return Math.sqrt(na*nb/(na+nb)*(Math.pow(cx(ia)-cx(ib),2)+Math.pow(cy(ia)-cy(ib),2)));
+}
+
+function agglomerative(D,lnk){
+  const clusters={};pts.forEach((_,i)=>clusters[i]=[i]);
+  let active=pts.map((_,i)=>i), nextId=N, steps=[];
+  const initD=D.map(r=>[...r]);
+  while(active.length>1){
+    let best=Infinity,bi=-1,bj=-1;
+    for(let ii=0;ii<active.length;ii++) for(let jj=ii+1;jj<active.length;jj++){
+      const d=clusterDist(active[ii],active[jj],D,lnk,clusters,initD);
+      if(d<best){best=d;bi=active[ii];bj=active[jj];}
+    }
+    clusters[nextId]=[...clusters[bi],...clusters[bj]];
+    steps.push({left:bi,right:bj,dist:best,id:nextId,members:[...clusters[nextId]]});
+    active=active.filter(x=>x!==bi&&x!==bj).concat(nextId);
+    nextId++;
+  }
+  return steps;
+}
+
+function computeClusters(steps,k){
+  let active=steps.length?[steps[steps.length-1].id]:pts.map((_,i)=>i);
+  const clMap={};pts.forEach((_,i)=>clMap[i]=[i]);
+  steps.forEach(s=>clMap[s.id]=s.members);
+  // walk back
+  const queue=[active[0]];
+  const leaves=[];
+  while(queue.length){
+    const id=queue.shift();
+    if(id<N){leaves.push([id]);continue;}
+    const s=steps.find(x=>x.id===id);
+    if(!s){leaves.push([id]);continue;}
+    const curActive=[s.left,s.right,...queue];
+    if(curActive.length>=k){queue.splice(0,1,s.left,s.right);}
+    else queue.splice(0,1,s.left,s.right);
+  }
+  // simpler: cut at step steps.length-k
+  const cutSteps=steps.slice(0,steps.length-k+1);
+  const finalActive=new Set(pts.map((_,i)=>i));
+  cutSteps.forEach(s=>{finalActive.delete(s.left);finalActive.delete(s.right);finalActive.add(s.id);});
+  const assign=new Array(N).fill(0);
+  let ci=0;
+  finalActive.forEach(id=>{
+    const members=id<N?[id]:(steps.find(x=>x.id===id)||{members:[id]}).members||[id];
+    members.forEach(i=>{if(i<N)assign[i]=ci;});
+    ci++;
+  });
+  return assign;
+}
+
+function run(){
+  const lnk=document.getElementById('linkage').value;
+  K=+document.getElementById('kCut').value;
+  document.getElementById('infoBox').textContent=DESC[lnk]||'';
+  genData();
+  const D=buildDistMatrix();
+  Z=agglomerative(D,lnk);
+  const assign=K>1?computeClusters(Z,K):new Array(N).fill(0);
+  drawScatter(assign);
+  drawHeatmap(D);
+  drawDendo(Z,assign);
+}
+
+function drawScatter(assign){
+  const cv=document.getElementById('scatter'), ctx=cv.getContext('2d');
+  const W=cv.width,H=cv.height; ctx.clearRect(0,0,W,H);
+  pts.forEach((p,i)=>{
+    ctx.beginPath();ctx.arc(p[0]*W*.9+W*.05,(1-p[1])*H*.9+H*.05,5,0,Math.PI*2);
+    ctx.fillStyle=PALETTE[assign[i]%PALETTE.length];ctx.fill();
+    ctx.font='9px sans-serif';ctx.fillStyle='#888';ctx.fillText(i,p[0]*W*.9+W*.05+6,(1-p[1])*H*.9+H*.05+4);
+  });
+}
+
+function drawHeatmap(D){
+  const cv=document.getElementById('heatmap'),ctx=cv.getContext('2d');
+  const W=cv.width,H=cv.height;ctx.clearRect(0,0,W,H);
+  const maxD=Math.max(...D.flatMap(r=>r));
+  const sz=Math.min(W,H)/N;
+  D.forEach((row,i)=>row.forEach((v,j)=>{
+    const t=v/maxD;
+    const r=Math.round(55+t*160),g=Math.round(100+t*60),b=Math.round(220-t*190);
+    ctx.fillStyle=`rgb(${r},${g},${b})`;
+    ctx.fillRect(j*sz+2,i*sz+2,sz,sz);
+  }));
+}
+
+function drawDendo(steps,assign){
+  const cv=document.getElementById('dendo'),ctx=cv.getContext('2d');
+  const W=cv.width,H=cv.height;ctx.clearRect(0,0,W,H);
+  if(!steps.length) return;
+  const isDark=matchMedia('(prefers-color-scheme: dark)').matches;
+  const PAD={l:30,r:10,t:20,b:30};
+  const plotW=W-PAD.l-PAD.r, plotH=H-PAD.t-PAD.b;
+
+  // leaf order via DFS on last step
+  const order=[];
+  function dfs(id){
+    if(id<N){order.push(id);return;}
+    const s=steps.find(x=>x.id===id);if(!s)return;
+    dfs(s.left);dfs(s.right);
+  }
+  dfs(steps[steps.length-1].id);
+
+  const maxDist=Math.max(...steps.map(s=>s.dist));
+  const xPos={};order.forEach((id,i)=>xPos[id]=PAD.l+plotW*(i+.5)/N);
+  const yOf=d=>PAD.t+plotH*(1-d/maxDist);
+
+  // draw leaves
+  order.forEach((id,i)=>{
+    const x=xPos[id];
+    ctx.font='9px sans-serif';
+    ctx.fillStyle=PALETTE[assign[id]%PALETTE.length];
+    ctx.fillText(id,x-3,H-6);
+  });
+
+  // node positions
+  const nodeX={}, nodeY={};
+  order.forEach(id=>{nodeX[id]=xPos[id];nodeY[id]=yOf(0);});
+
+  steps.forEach(s=>{
+    const xl=nodeX[s.left],xr=nodeX[s.right];
+    const xm=(xl+xr)/2;
+    const y=yOf(s.dist);
+    const yl=nodeY[s.left],yr=nodeY[s.right];
+
+    // color if cut cluster
+    const allL=s.left<N?[s.left]:steps.find(x=>x.id===s.left)?.members||[s.left];
+    const allR=s.right<N?[s.right]:steps.find(x=>x.id===s.right)?.members||[s.right];
+    const cl=assign[allL[0]%N], cr=assign[allR[0]%N];
+    const sameCluster=cl===cr;
+    ctx.strokeStyle=sameCluster?PALETTE[cl%PALETTE.length]:(isDark?'rgba(255,255,255,.3)':'rgba(0,0,0,.25)');
+    ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(xl,yl);ctx.lineTo(xl,y);ctx.lineTo(xr,y);ctx.lineTo(xr,yr);ctx.stroke();
+
+    nodeX[s.id]=xm;nodeY[s.id]=y;
+  });
+
+  // cut line
+  if(K>1&&steps.length>=K){
+    const cutStep=steps[steps.length-K+1];
+    const cutY=yOf(cutStep.dist);
+    ctx.setLineDash([4,3]);
+    ctx.strokeStyle='#E24B4A';ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(PAD.l,cutY);ctx.lineTo(W-PAD.r,cutY);ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle='#E24B4A';ctx.font='10px sans-serif';
+    ctx.fillText('k='+K,W-PAD.r+2,cutY+4);
+  }
+
+  // y axis
+  ctx.fillStyle=isDark?'rgba(255,255,255,.4)':'rgba(0,0,0,.4)';
+  ctx.font='9px sans-serif';
+  [0,.25,.5,.75,1].forEach(t=>{
+    const y=yOf(t*maxDist);
+    ctx.fillText((t*maxDist).toFixed(2),2,y+3);
+    ctx.beginPath();ctx.strokeStyle=isDark?'rgba(255,255,255,.08)':'rgba(0,0,0,.07)';
+    ctx.lineWidth=.5;ctx.moveTo(PAD.l,y);ctx.lineTo(W-PAD.r,y);ctx.stroke();
+  });
+}
+
+document.getElementById('linkage').onchange=
+document.getElementById('metric').onchange=
+document.getElementById('dataset').onchange=run;
+document.getElementById('nPts').oninput=function(){document.getElementById('nVal').textContent=this.value;run();};
+document.getElementById('kCut').oninput=function(){document.getElementById('kVal').textContent=this.value;run();};
+
+setDir('agglomerative');
+</script>

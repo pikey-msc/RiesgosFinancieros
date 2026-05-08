@@ -1,0 +1,280 @@
+
+<h2 class="sr-only">Playground interactivo de K-Means: visualiza convergencia, inercia y Elbow method</h2>
+<div style="display:grid;grid-template-columns:220px 1fr;gap:16px;padding:1rem 0;min-height:560px">
+<div style="display:flex;flex-direction:column;gap:10px">
+  <div style="font-size:13px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">configuración</div>
+
+  <label style="font-size:12px;color:var(--color-text-secondary)">k clusters: <span id="kShow">3</span></label>
+  <input type="range" id="kSlider" min="1" max="9" step="1" value="3">
+
+  <label style="font-size:12px;color:var(--color-text-secondary)">n puntos: <span id="nShow">80</span></label>
+  <input type="range" id="nSlider" min="20" max="200" step="10" value="80">
+
+  <label style="font-size:12px;color:var(--color-text-secondary)">dataset</label>
+  <select id="ds" style="font-size:13px;padding:6px 8px;border-radius:var(--border-radius-md);border:.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary)">
+    <option value="blobs">blobs separados</option>
+    <option value="overlap">blobs solapados</option>
+    <option value="moons">lunas</option>
+    <option value="ring">anillos</option>
+    <option value="uniform">uniforme</option>
+  </select>
+
+  <label style="font-size:12px;color:var(--color-text-secondary)">inicialización</label>
+  <select id="init" style="font-size:13px;padding:6px 8px;border-radius:var(--border-radius-md);border:.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary)">
+    <option value="random">random</option>
+    <option value="kpp" selected>k-means++</option>
+  </select>
+
+  <label style="font-size:12px;color:var(--color-text-secondary)">métrica</label>
+  <select id="metric" style="font-size:13px;padding:6px 8px;border-radius:var(--border-radius-md);border:.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary)">
+    <option value="euclidean" selected>euclidiana</option>
+    <option value="manhattan">manhattan</option>
+  </select>
+
+  <button onclick="resetAndRun()" style="font-size:12px;padding:6px">nueva semilla</button>
+
+  <div style="display:flex;align-items:center;gap:8px">
+    <button id="btnStep" onclick="stepFwd()" style="flex:1;font-size:12px;padding:5px">paso →</button>
+    <button id="btnAuto" onclick="toggleAuto()" style="flex:1;font-size:12px;padding:5px">auto ▶</button>
+  </div>
+  <div style="font-size:11px;color:var(--color-text-secondary)" id="iterLabel">iter: 0</div>
+
+  <div style="padding:8px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);font-size:11px;color:var(--color-text-secondary);line-height:1.6">
+    <b style="color:var(--color-text-primary)">inercia</b>: Σ||xᵢ−μₖ||²<br>
+    <span id="inertiaVal">—</span>
+  </div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:10px">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+    <div>
+      <div style="font-size:11px;color:var(--color-text-secondary);margin-bottom:4px">espacio de datos</div>
+      <canvas id="scatter" width="300" height="260" style="width:100%;border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md)"></canvas>
+    </div>
+    <div>
+      <div style="font-size:11px;color:var(--color-text-secondary);margin-bottom:4px">trayectoria de centroides</div>
+      <canvas id="traj" width="300" height="260" style="width:100%;border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md)"></canvas>
+    </div>
+  </div>
+  <div>
+    <div style="font-size:11px;color:var(--color-text-secondary);margin-bottom:4px">curva elbow (k=1..9)</div>
+    <canvas id="elbow" width="620" height="140" style="width:100%;border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md)"></canvas>
+  </div>
+</div>
+</div>
+
+<script>
+const PAL=['#378ADD','#D85A30','#1D9E75','#D4537E','#BA7517','#7F77DD','#639922','#E24B4A','#0F6E56'];
+let PTS=[], K=3, centroids=[], prevCentroids=[], assign=[], history=[], autoTimer=null, converged=false;
+
+function d2(a,b,m){
+  if(m==='manhattan') return Math.abs(a[0]-b[0])+Math.abs(a[1]-b[1]);
+  return (a[0]-b[0])**2+(b[1]?((a[1]-b[1])**2):0);
+}
+
+function genPts(){
+  const n=+document.getElementById('nSlider').value;
+  const ds=document.getElementById('ds').value;
+  PTS=[];
+  if(ds==='blobs'){
+    const cs=[[.2,.2],[.8,.2],[.5,.8],[.2,.7],[.8,.7]];
+    for(let i=0;i<n;i++){const c=cs[i%3];PTS.push([c[0]+(Math.random()-.5)*.18,c[1]+(Math.random()-.5)*.18]);}
+  } else if(ds==='overlap'){
+    const cs=[[.35,.35],[.65,.65],[.5,.3]];
+    for(let i=0;i<n;i++){const c=cs[i%3];PTS.push([c[0]+(Math.random()-.5)*.32,c[1]+(Math.random()-.5)*.32]);}
+  } else if(ds==='moons'){
+    for(let i=0;i<n;i++){const t=Math.PI*i/n;if(i<n/2)PTS.push([.5+.35*Math.cos(t)+(Math.random()-.5)*.07,.5+.35*Math.sin(t)+(Math.random()-.5)*.07]);else PTS.push([.5+.35*Math.cos(Math.PI+t)+(Math.random()-.5)*.07,.28+.35*Math.sin(Math.PI+t)+(Math.random()-.5)*.07]);}
+  } else if(ds==='ring'){
+    for(let i=0;i<n;i++){const t=2*Math.PI*i/n,r=i<n/2?.18:.38;PTS.push([.5+r*Math.cos(t)+(Math.random()-.5)*.04,.5+r*Math.sin(t)+(Math.random()-.5)*.04]);}
+  } else {
+    for(let i=0;i<n;i++) PTS.push([.05+Math.random()*.9,.05+Math.random()*.9]);
+  }
+}
+
+function initCentroids(){
+  const m=document.getElementById('metric').value;
+  const ini=document.getElementById('init').value;
+  if(ini==='random'){
+    const idx=Array.from({length:PTS.length},(_,i)=>i).sort(()=>Math.random()-.5).slice(0,K);
+    centroids=idx.map(i=>[...PTS[i]]);
+  } else {
+    const first=Math.floor(Math.random()*PTS.length);
+    centroids=[[...PTS[first]]];
+    while(centroids.length<K){
+      const dists=PTS.map(p=>Math.min(...centroids.map(c=>d2(p,c,m))));
+      const sum=dists.reduce((a,b)=>a+b,0);
+      let r=Math.random()*sum,cum=0;
+      for(let i=0;i<PTS.length;i++){cum+=dists[i];if(cum>=r){centroids.push([...PTS[i]]);break;}}
+      if(centroids.length<K) centroids.push([...PTS[Math.floor(Math.random()*PTS.length)]]);
+    }
+  }
+  history=[centroids.map(c=>[...c])];
+  prevCentroids=[];
+  assign=new Array(PTS.length).fill(0);
+  converged=false;
+}
+
+function eStep(){
+  const m=document.getElementById('metric').value;
+  assign=PTS.map(p=>{
+    let best=Infinity,bi=0;
+    centroids.forEach((c,i)=>{const dd=d2(p,c,m);if(dd<best){best=dd;bi=i;}});
+    return bi;
+  });
+}
+
+function mStep(){
+  prevCentroids=centroids.map(c=>[...c]);
+  centroids=centroids.map((_,k)=>{
+    const members=PTS.filter((_,i)=>assign[i]===k);
+    if(!members.length) return centroids[k];
+    return [members.reduce((s,p)=>s+p[0],0)/members.length,members.reduce((s,p)=>s+p[1],0)/members.length];
+  });
+  history.push(centroids.map(c=>[...c]));
+  converged=centroids.every((c,k)=>Math.hypot(c[0]-prevCentroids[k][0],c[1]-prevCentroids[k][1])<1e-6);
+}
+
+function inertia(k_,pts_,cents_,asgn_){
+  const m=document.getElementById('metric').value;
+  return pts_.reduce((s,p,i)=>s+d2(p,cents_[asgn_[i]],m),0);
+}
+
+function stepFwd(){
+  if(converged) return;
+  eStep();mStep();
+  const iter=history.length-1;
+  document.getElementById('iterLabel').textContent='iter: '+iter+(converged?' ✓ convergió':'');
+  const iner=inertia(K,PTS,centroids,assign);
+  document.getElementById('inertiaVal').textContent=iner.toFixed(2);
+  drawAll();
+}
+
+function toggleAuto(){
+  if(autoTimer){clearInterval(autoTimer);autoTimer=null;document.getElementById('btnAuto').textContent='auto ▶';}
+  else{document.getElementById('btnAuto').textContent='parar ■';autoTimer=setInterval(()=>{if(converged){clearInterval(autoTimer);autoTimer=null;document.getElementById('btnAuto').textContent='auto ▶';}else stepFwd();},400);}
+}
+
+function resetAndRun(){
+  if(autoTimer){clearInterval(autoTimer);autoTimer=null;document.getElementById('btnAuto').textContent='auto ▶';}
+  K=+document.getElementById('kSlider').value;
+  genPts();initCentroids();eStep();
+  document.getElementById('iterLabel').textContent='iter: 0';
+  document.getElementById('inertiaVal').textContent='—';
+  drawAll();computeElbow();
+}
+
+function drawAll(){drawScatter();drawTraj();}
+
+function toCanvas(p,W,H){return[p[0]*(W*.9)+W*.05,(1-p[1])*(H*.9)+H*.05];}
+
+function drawScatter(){
+  const cv=document.getElementById('scatter'),ctx=cv.getContext('2d');
+  const W=cv.width,H=cv.height;ctx.clearRect(0,0,W,H);
+  PTS.forEach((p,i)=>{
+    const [x,y]=toCanvas(p,W,H);
+    ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);
+    ctx.fillStyle=PAL[assign[i]%PAL.length]+'aa';ctx.fill();
+  });
+  centroids.forEach((c,k)=>{
+    const [x,y]=toCanvas(c,W,H);
+    ctx.beginPath();ctx.arc(x,y,8,0,Math.PI*2);
+    ctx.fillStyle=PAL[k%PAL.length];ctx.fill();
+    ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();
+    ctx.fillStyle='#fff';ctx.font='bold 9px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(k+1,x,y);ctx.textAlign='start';ctx.textBaseline='alphabetic';
+  });
+}
+
+function drawTraj(){
+  const cv=document.getElementById('traj'),ctx=cv.getContext('2d');
+  const W=cv.width,H=cv.height;ctx.clearRect(0,0,W,H);
+  for(let k=0;k<K;k++){
+    ctx.beginPath();ctx.strokeStyle=PAL[k%PAL.length];ctx.lineWidth=1.5;ctx.setLineDash([]);
+    history.forEach((snap,t)=>{
+      const [x,y]=toCanvas(snap[k],W,H);
+      t===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    });
+    ctx.stroke();
+    history.forEach((snap,t)=>{
+      const [x,y]=toCanvas(snap[k],W,H);
+      ctx.beginPath();ctx.arc(x,y,t===history.length-1?5:2.5,0,Math.PI*2);
+      ctx.fillStyle=t===history.length-1?PAL[k%PAL.length]:PAL[k%PAL.length]+'66';
+      ctx.fill();
+    });
+  }
+}
+
+function computeElbow(){
+  const m=document.getElementById('metric').value;
+  const ini=document.getElementById('init').value;
+  const elbowData=[];
+  for(let k=1;k<=9;k++){
+    let bestInertia=Infinity;
+    for(let trial=0;trial<3;trial++){
+      const tmpC=[];
+      if(ini==='random'){
+        const idx=Array.from({length:PTS.length},(_,i)=>i).sort(()=>Math.random()-.5).slice(0,k);
+        idx.forEach(i=>tmpC.push([...PTS[i]]));
+      } else {
+        const f=Math.floor(Math.random()*PTS.length);tmpC.push([...PTS[f]]);
+        while(tmpC.length<k){
+          const ds2=PTS.map(p=>Math.min(...tmpC.map(c=>d2(p,c,m))));
+          const s=ds2.reduce((a,b)=>a+b,0);let r=Math.random()*s,cum=0;
+          for(let i=0;i<PTS.length;i++){cum+=ds2[i];if(cum>=r){tmpC.push([...PTS[i]]);break;}}
+          if(tmpC.length<k) tmpC.push([...PTS[Math.floor(Math.random()*PTS.length)]]);
+        }
+      }
+      let asgn=new Array(PTS.length).fill(0);
+      for(let it=0;it<50;it++){
+        asgn=PTS.map(p=>{let best=Infinity,bi=0;tmpC.forEach((c,i)=>{const dd=d2(p,c,m);if(dd<best){best=dd;bi=i;}});return bi;});
+        const moved=tmpC.map((_,ki)=>{const ms=PTS.filter((_,i)=>asgn[i]===ki);return ms.length?[ms.reduce((s,p)=>s+p[0],0)/ms.length,ms.reduce((s,p)=>s+p[1],0)/ms.length]:tmpC[ki];});
+        if(moved.every((c,i)=>Math.hypot(c[0]-tmpC[i][0],c[1]-tmpC[i][1])<1e-6)){tmpC.splice(0,k,...moved);break;}
+        tmpC.splice(0,k,...moved);
+      }
+      const iner=PTS.reduce((s,p,i)=>s+d2(p,tmpC[asgn[i]],m),0);
+      if(iner<bestInertia) bestInertia=iner;
+    }
+    elbowData.push(bestInertia);
+  }
+  drawElbow(elbowData);
+}
+
+function drawElbow(data){
+  const cv=document.getElementById('elbow'),ctx=cv.getContext('2d');
+  const W=cv.width,H=cv.height;ctx.clearRect(0,0,W,H);
+  const isDark=matchMedia('(prefers-color-scheme: dark)').matches;
+  const PAD={l:40,r:10,t:10,b:30};
+  const pW=W-PAD.l-PAD.r, pH=H-PAD.t-PAD.b;
+  const maxV=Math.max(...data), minV=Math.min(...data);
+  const xOf=i=>PAD.l+pW*(i/8);
+  const yOf=v=>PAD.t+pH*(1-(v-minV)/(maxV-minV||1));
+
+  ctx.strokeStyle=isDark?'rgba(255,255,255,.1)':'rgba(0,0,0,.08)';
+  ctx.lineWidth=.5;
+  [0,.25,.5,.75,1].forEach(t=>{
+    const y=PAD.t+pH*t;ctx.beginPath();ctx.moveTo(PAD.l,y);ctx.lineTo(W-PAD.r,y);ctx.stroke();
+    ctx.fillStyle=isDark?'rgba(255,255,255,.4)':'rgba(0,0,0,.4)';ctx.font='9px sans-serif';
+    ctx.fillText(((1-t)*(maxV-minV)+minV).toFixed(0),2,y+3);
+  });
+
+  ctx.beginPath();ctx.strokeStyle='#378ADD';ctx.lineWidth=2;
+  data.forEach((v,i)=>i===0?ctx.moveTo(xOf(i),yOf(v)):ctx.lineTo(xOf(i),yOf(v)));
+  ctx.stroke();
+
+  data.forEach((v,i)=>{
+    const x=xOf(i),y=yOf(v);
+    ctx.beginPath();ctx.arc(x,y,i+1===K?6:3.5,0,Math.PI*2);
+    ctx.fillStyle=i+1===K?'#D85A30':'#378ADD';ctx.fill();
+    ctx.fillStyle=isDark?'rgba(255,255,255,.6)':'rgba(0,0,0,.6)';
+    ctx.font='10px sans-serif';ctx.fillText(i+1,x-3,H-6);
+  });
+}
+
+document.getElementById('kSlider').oninput=function(){document.getElementById('kShow').textContent=this.value;resetAndRun();};
+document.getElementById('nSlider').oninput=function(){document.getElementById('nShow').textContent=this.value;resetAndRun();};
+document.getElementById('ds').onchange=
+document.getElementById('init').onchange=
+document.getElementById('metric').onchange=resetAndRun;
+
+resetAndRun();
+</script>
